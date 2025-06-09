@@ -80,7 +80,7 @@ class MT5LSTMTrader:
         
         # Variables del modelo
         self.model = None
-        self.model_path = os.path.join(self.script_dir, 'lstm_model.h5')
+        self.model_path = os.path.join(self.script_dir, f'lstm_model_{self.symbol}.h5')
         self.last_trained = None
         
         # Métricas y resultados
