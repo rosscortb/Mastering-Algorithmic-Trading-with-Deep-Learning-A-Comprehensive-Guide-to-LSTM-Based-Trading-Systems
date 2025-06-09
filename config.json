@@ -6,7 +6,7 @@
         "path": "C:\\Program Files\\Admirals Group MT5 Terminal\\terminal64.exe"
     },
     
-    "symbol": "EURUSD",
+    "symbols": ["EURUSD","GBPUSD","USDJPY"],
     "prediction_timeframe": "H4",
     "execution_timeframe": "H1",
     "look_back": 120,
