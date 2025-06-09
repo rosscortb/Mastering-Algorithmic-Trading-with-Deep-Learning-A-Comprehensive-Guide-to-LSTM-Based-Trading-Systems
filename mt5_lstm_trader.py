@@ -1134,7 +1134,21 @@ class MT5LSTMTrader:
 if __name__ == "__main__":
     try:
         # Crear y ejecutar el bot
-        bot = MT5LSTMTrader()
-        bot.run()
+        with open('config.json', 'r') as f:
+    config = json.load(f)
+
+symbols = config.get("symbols", [])
+for symbol in symbols:
+    modified_config = config.copy()
+    modified_config["symbol"] = symbol
+
+    # Save temp config file per symbol
+    temp_config_path = f"temp_config_{symbol}.json"
+    with open(temp_config_path, 'w') as f:
+        json.dump(modified_config, f)
+
+    bot = MT5LSTMTrader(config_path=temp_config_path)
+    bot.run()
+
     except Exception as e:
         logging.error(f"Error al iniciar el bot: {e}")
